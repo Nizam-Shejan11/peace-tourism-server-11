@@ -28,6 +28,7 @@ async function run() {
       .db("peaceTourismDB")
       .collection("bookings");
 
+    // GET method
     app.get("/services", async (req, res) => {
       const query = {};
       const cursor = serviceCollection.find(query);
