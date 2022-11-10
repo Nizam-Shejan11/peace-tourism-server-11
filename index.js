@@ -5,7 +5,7 @@ const app = express();
 const port = process.env.PORT || 7000;
 require("dotenv").config();
 
-// middleware
+// _ _ _ _middleware
 app.use(cors());
 app.use(express.json());
 
@@ -28,7 +28,7 @@ async function run() {
       .db("peaceTourismDB")
       .collection("bookings");
 
-    // GET method
+    // _ _ _ _ GET method
     app.get("/services", async (req, res) => {
       const query = {};
       const cursor = serviceCollection.find(query);
@@ -43,7 +43,7 @@ async function run() {
       res.send(service);
     });
 
-    // bookings api
+    // _ _ _ _ bookings api
     app.get("/bookings", async (req, res) => {
       let query = {};
 
@@ -58,14 +58,14 @@ async function run() {
       res.send(bookings);
     });
 
-    // POST method
+    // _ _ _ _ POST method
     app.post("/bookings", async (req, res) => {
       const booking = req.body;
       const result = await bookingCollection.insertOne(booking);
       res.send(result);
     });
 
-    // DELETE method
+    // _ _ _ _ DELETE method
     app.delete("/bookings/:id", async (req, res) => {
       const id = req.params.id;
       const query = { _id: ObjectId(id) };
